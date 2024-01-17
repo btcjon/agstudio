@@ -7,17 +7,5 @@
         "temperature": 0.7,
         "max_tokens": 150
       }
-      // ... other configurations
-    ]
-  }{
-    "OAI_CONFIG_LIST": [
-      {
-        "api_key": "your-actual-api-key",
-        "model": "gpt-3.5-turbo",
-        "engine": "davinci",
-        "temperature": 0.7,
-        "max_tokens": 150
-      }
-      // ... other configurations
     ]
   }
