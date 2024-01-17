@@ -3,8 +3,8 @@ from dotenv import load_dotenv
 import os
 
 # Load environment variables from a .env file
-load_dotenv()
-config_list = config_list_from_json(env_or_file="OAI_CONFIG_LIST")
+# Load LLM inference endpoints from a JSON file
+config_list = config_list_from_json("/path/to/your/oai_config_list.json")
 
 # Create an AssistantAgent instance
 assistant = AssistantAgent(
