@@ -1,7 +1,7 @@
 {
     "OAI_CONFIG_LIST": [
       {
-        "api_key": "your-new-api-key",
+        "api_key": "YOUR_ENV_VARIABLE_NAME",
         "model": "gpt-4-1106-preview",
         "temperature": 0.1,
         "max_tokens": 128000,
