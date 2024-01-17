@@ -1,7 +1,10 @@
 from autogen import AssistantAgent, UserProxyAgent, config_list_from_json
+from dotenv import load_dotenv
+import os
 
-# Load LLM inference endpoints from a JSON file
-config_list = config_list_from_json("/Users/jonbennett/Dropbox/coding2/agstudio/oai_config_list.json")
+# Load environment variables from a .env file
+load_dotenv()
+config_list = config_list_from_json(env_or_file="OAI_CONFIG_LIST")
 
 # Create an AssistantAgent instance
 assistant = AssistantAgent(
