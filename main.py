@@ -4,7 +4,7 @@ import os
 
 load_dotenv()
 
-config_list = config_list_from_json("oai_config_list.json")
+config_list = config_list_from_json(os.getenv("OAI_CONFIG_LIST"))
 
 # Create an AssistantAgent instance
 assistant = AssistantAgent(
