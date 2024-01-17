@@ -4,12 +4,12 @@ import os
 
 load_dotenv()
 
-config_list = config_list_from_json("/path/to/your/oai_config_list.json")
+config_list = config_list_from_json("oai_config_list.json")
 
 # Create an AssistantAgent instance
 assistant = AssistantAgent(
     name="assistant",
-    llm_config={"config_list": config_list}
+    llm_config={"config_list": config_list, "api_key": os.getenv("OPENAI_API_KEY")}
 )
 
 # Create a UserProxyAgent instance
