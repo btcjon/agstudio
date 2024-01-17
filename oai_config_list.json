@@ -1,12 +1,11 @@
 {
     "OAI_CONFIG_LIST": [
       {
-        "api_key": "your-new-api-key", // Replace with your actual new API key
+        "api_key": "your-new-api-key",
         "model": "gpt-4-1106-preview",
-        "engine": "davinci-codex",
-        "temperature": 0.7,
-        "max_tokens": 2048, // Adjust if needed for your specific use case
-        "max_context": 131072 // 128k context window
+        "temperature": 0.1,
+        "max_tokens": 128000,
+        "max_context": 131072
       }
     ]
   }
