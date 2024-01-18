@@ -12,8 +12,11 @@ import argparse
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
 def crawl_website(url, visited=None):
+def crawl_website(url, visited=None, folders=None):
     if visited is None:
         visited = set()
+    if folders is None:
+        folders = args.folder
 
     base_url = url
 
@@ -53,9 +56,27 @@ def crawl_website(url, visited=None):
             # If link is relative, convert it to absolute
             absolute_href = urljoin(base_url, href)
 
-            # Check if the link is within the specified folders and not visited
-            if (any(urlparse(absolute_href).path.startswith(folder) for folder in args.folder) and
-                    absolute_href not in visited):
+            # Add the absolute href to the list of URLs to be processed later
+            urls_in_directory.append(absolute_href)
+
+    # Print the number of URLs found
+    print(f"Crawled {url}, found {len(urls_in_directory)} URLs so far.")
+
+    # Recursively crawl the URLs that have not been visited
+    for absolute_href in urls_in_directory:
+        if absolute_href not in visited and base_url in absolute_href:
+            try:
+                # Check if the page exists before crawling
+                response = requests.get(absolute_href)
+                time.sleep(1)  # Add a delay of 1 second between requests
+                if response.status_code == 200:
+                    urls_in_directory.extend(crawl_website(absolute_href, visited, folders))
+            except requests.exceptions.RequestException as e:
+                with open(error_log_path, 'a') as error_log:
+                    error_log.write(f"Error: Failed to crawl URL {absolute_href}: {e}\n")
+
+    return urls_in_directory
+
                 urls_in_directory.append(absolute_href)
 
                 # Write the URL to the file
@@ -104,54 +125,31 @@ args = parser.parse_args()
 print("Getting stop words...")
 stop_words = input("Enter any stop words, separated by commas: ").split(',')
 stop_words = [word.strip() for word in stop_words]
+# Parse the arguments
+args = parser.parse_args()
+
+print("Scraping URLs...")
+all_urls = []
+for url in args.urls:
+    all_urls.extend(crawl_website(url))
+
+# Filter URLs based on specified folders
+if args.folder:
+    all_urls = [url for url in all_urls if any(urlparse(url).path.startswith(folder) for folder in args.folder)]
+
+print("Getting stop words...")
+stop_words = input("Enter any stop words, separated by commas: ").split(',')
+stop_words = [word.strip() for word in stop_words]
+
+# Filter URLs based on stop words
+all_urls = [url for url in all_urls if not any(word in url for word in stop_words)]
 
 # Process the URLs
-for url in args.urls:
+for url in all_urls:
     # Extract the domain name from the base URL
     parsed_uri = urlparse(url)
     domain = '{uri.netloc}'.format(uri=parsed_uri)
-
-    # Create a directory for the domain
-    domain_dir = os.path.join('tools/scrape', domain)
-    os.makedirs(domain_dir, exist_ok=True)
-
-    # Save the URLs to a text file in the domain directory
-    text_file_path = os.path.join(domain_dir, f'{domain}-urls.txt')
-    open(text_file_path, 'w').close()  # Create the file if it doesn't exist
-
-    # Create a directory for the PDFs
-    pdf_dir = os.path.join(domain_dir, 'pdfs')
-    os.makedirs(pdf_dir, exist_ok=True)
-
-    # Create a directory for the markdown files
-    md_dir = os.path.join(domain_dir, 'MDs')
-    os.makedirs(md_dir, exist_ok=True)
-
-    # Create a file for logging errors
-    error_log_path = os.path.join(pdf_dir, 'errors.txt')
-
-    # PDFKit options
-    options = {
-        'page-size': 'Letter',
-        'orientation': 'Portrait',
-        'no-background': None,
-        'zoom': 1,
-        'grayscale': None,
-        'no-stop-slow-scripts': True,
-        'debug-javascript': True,
-    }
-
-    print("Scraping URLs...")
-    urls = crawl_website(url)
-
-    # Filter URLs based on stop words
-    urls = [url for url in urls if not any(word in url for word in stop_words)]
-
-    # Write the filtered URLs back to the file
-    with open(text_file_path, 'w') as f:
-        for url in urls:
-            f.write(f"{url}\n")
-
+    ...
     print("Processing URLs...")
     # Iterate over the URLs
     processed_files = {'md': [], 'pdf': []}
