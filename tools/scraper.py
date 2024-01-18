@@ -62,9 +62,8 @@ def crawl_website(url, visited=None):
                 with open(text_file_path, 'a') as f:
                     f.write(f"{absolute_href}\n")
 
-                # If the link has not been visited, crawl it
+                # If the link has not been visited and is within the base URL, crawl it
                 if absolute_href not in visited and base_url in absolute_href:
-                if base_url in absolute_href:
                     try:
                         # Check if the page exists before crawling
                         response = requests.get(absolute_href)
