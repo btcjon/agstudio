@@ -53,8 +53,9 @@ def crawl_website(url, visited=None):
             # If link is relative, convert it to absolute
             absolute_href = urljoin(base_url, href)
 
-            # Check if the link is within one of the specified folders
-            if any(urlparse(absolute_href).path.startswith('/' + folder) for folder in args.folder):
+            # Check if the link is within the specified folders and not visited
+            if (any(urlparse(absolute_href).path.startswith(folder) for folder in args.folder) and
+                    absolute_href not in visited):
                 urls_in_directory.append(absolute_href)
 
                 # Write the URL to the file
@@ -63,6 +64,7 @@ def crawl_website(url, visited=None):
 
                 # If the link has not been visited, crawl it
                 if absolute_href not in visited and base_url in absolute_href:
+                if base_url in absolute_href:
                     try:
                         # Check if the page exists before crawling
                         response = requests.get(absolute_href)
@@ -99,6 +101,10 @@ parser.add_argument('-c', '--combine', action='store_true',
 
 # Parse the arguments
 args = parser.parse_args()
+
+print("Getting stop words...")
+stop_words = input("Enter any stop words, separated by commas: ").split(',')
+stop_words = [word.strip() for word in stop_words]
 
 # Process the URLs
 for url in args.urls:
@@ -138,21 +144,6 @@ for url in args.urls:
 
     print("Scraping URLs...")
     urls = crawl_website(url)
-
-    # Read the URLs from the file
-    with open(text_file_path, 'r') as f:
-        urls = f.readlines()
-
-    # Remove newline characters from the URLs
-    urls = [url.strip() for url in urls]
-
-    # Filter URLs based on specified folders
-    urls = [url for url in urls if any(folder in urlparse(url).path.split('/') for folder in args.folder)]
-
-    # Ask for stop words
-    print("Getting stop words...")
-    stop_words = input("Enter any stop words, separated by commas: ").split(',')
-    stop_words = [word.strip() for word in stop_words]
 
     # Filter URLs based on stop words
     urls = [url for url in urls if not any(word in url for word in stop_words)]
