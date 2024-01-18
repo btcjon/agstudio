@@ -1,0 +1,85 @@
+
+# 2024-01-17 05:01:35.191674
++/add autogen/website/docs/Getting-Started.md autogen/website/docs/Use-Cases/agent_chat.md autogen/website/docs/Installation.md
+
+# 2024-01-17 05:02:37.848627
++I would like your help in setting up autogen and making it functional
+
+# 2024-01-17 05:03:18.726489
++I have it installed locally in venv already
+
+# 2024-01-17 05:04:11.797821
++what files need to be made?
+
+# 2024-01-17 05:06:11.805602
++/add oai_config_list.json main.py
+
+# 2024-01-17 05:08:38.420227
++/add .env
+
+# 2024-01-17 05:08:55.522945
++lets use .env for API keys etc
+
+# 2024-01-17 05:11:00.380058
++I think I prefer keeping the standard `oai_config_list.json` can we revert?
+
+# 2024-01-17 05:21:37.559815
++/add autogen/website/blog/2023-11-26-Agent-AutoBuild
+
+# 2024-01-17 05:22:07.313264
++autogen/website/blog/2023-11-26-Agent-AutoBuild/index.mdx
+
+# 2024-01-17 05:22:16.248109
++/add autogen/website/blog/2023-11-26-Agent-AutoBuild/index.mdx
+
+# 2024-01-17 05:29:52.061611
++I want to use gpt-4-1106-preview with 128k context window, read the autobuild doc, I think this is streamlined way to use autogen? also, let's keepnotes for helping me know how to use autogen in how_to.md
+
+# 2024-01-17 05:30:28.827166
++the autobuild mdx is ONLY for your reference and guidance
+
+# 2024-01-17 05:33:15.644132
++if key is in .env file, what do I insert in the config list?
+
+# 2024-01-17 05:35:12.531553
++is my basic code complete? how do i run?
+
+# 2024-01-17 05:37:48.990776
++python main.py
++Traceback (most recent call last):
++  File "/Users/jonbennett/Dropbox/coding2/agstudio/main.py", line 10, in <module>
++    assistant = AssistantAgent(
++                ^^^^^^^^^^^^^^^
++  File "/Users/jonbennett/Dropbox/coding2/agstudio/agstudio/lib/python3.11/site-packages/autogen/age
++ntchat/assistant_agent.py", line 61, in __init__                                                        super().__init__(
++  File "/Users/jonbennett/Dropbox/coding2/agstudio/agstudio/lib/python3.11/site-packages/autogen/age
++ntchat/conversable_agent.py", line 126, in __init__                                                     self.client = OpenAIWrapper(**self.llm_config)
++                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++  File "/Users/jonbennett/Dropbox/coding2/agstudio/agstudio/lib/python3.11/site-packages/autogen/oai
++/client.py", line 96, in __init__                                                                       config_list = [config.copy() for config in config_list]  # make a copy before modifying
++                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++  File "/Users/jonbennett/Dropbox/coding2/agstudio/agstudio/lib/python3.11/site-packages/autogen/oai
++/client.py", line 96, in <listcomp>                                                                     config_list = [config.copy() for config in config_list]  # make a copy before modifying
++                   ^^^^^^^^^^^
++AttributeError: 'str' object has no attribute 'copy'
++
+
+# 2024-01-17 06:03:35.964060
++/drop
+
+# 2024-01-17 06:04:26.085654
++/add main.py docs/autogen/autobuild_basic.ipynb
+
+# 2024-01-17 06:05:21.041908
++trying to do basic autobuild from example 'autobuild_basic' file is for your reference only. Am I missing anything?
+
+# 2024-01-17 06:06:38.559469
++python main.py
++Traceback (most recent call last):
++  File "/Users/jonbennett/Dropbox/coding2/agstudio/main.py", line 1, in <module>
++    from autogen import config_list_from_json, AgentBuilder, GroupChat, GroupChatManager
++ImportError: cannot import name 'AgentBuilder' from 'autogen' (/Users/jonbennett/Dropbox/coding2/ags
++tudio/agstudio/lib/python3.11/site-packages/autogen/__init__.py)                                    
+
+# 2024-01-17 06:08:15.815251
++which python
