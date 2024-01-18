@@ -1,8 +1,8 @@
-import os
-import pdfkit
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, urljoin
+from urllib.parse import urljoin, urlparse
+import os
+import pdfkit
 
 def crawl_website(url, base_url, folder_path, visited=None):
     if visited is None:
@@ -69,37 +69,20 @@ urls = crawl_website(base_url, base_url, folder_path)
 # Remove duplicates
 urls = list(set(urls))
 
-# Extract the domain name from the base URL
-parsed_uri = urlparse(base_url)
-domain = '{uri.netloc}'.format(uri=parsed_uri)
-
-# Create a directory for the domain
-domain_dir = os.path.join('tools/scrape', domain)
-os.makedirs(domain_dir, exist_ok=True)
-
-# Save the URLs to a text file in the domain directory
-text_file_path = os.path.join(domain_dir, f'{domain}-urls.txt')
-with open(text_file_path, 'w') as f:
-    for url in urls:
-        f.write(f"{url}\n")
-
 # Create a directory for the PDFs
-pdf_dir = os.path.join(domain_dir, 'pdfs')
+pdf_dir = os.path.join('tools/scrape', 'pdfs')
 os.makedirs(pdf_dir, exist_ok=True)
 
-# Create a file for logging errors
-error_log_path = os.path.join(pdf_dir, 'errors.txt')
+# PDFKit options
+options = {
+    'page-size': 'Letter',
+    'orientation': 'Portrait',
+    'no-background': None,
+    'zoom': 1,
+    'grayscale': None,
+}
 
 # Iterate over the URLs
 for url in urls:
-    try:
-        response = requests.get(url)
-        response.raise_for_status()  # Raises a HTTPError if the status is 4xx, 5xx
-    except requests.exceptions.RequestException as e:
-        print(f"Error occurred: {e}")
-        with open(error_log_path, 'a') as error_log:
-            error_log.write(f"Error occurred with URL {url}: {e}\n")
-        continue  # Skip this URL and continue with the next one
-
     # Save the page as PDF
-    pdfkit.from_url(url, os.path.join(pdf_dir, url.split('/')[-1] + '.pdf'))
+    pdfkit.from_url(url, os.path.join(pdf_dir, url.split('/')[-1] + '.pdf'), options=options)

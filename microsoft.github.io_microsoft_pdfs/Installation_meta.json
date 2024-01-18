@@ -1,0 +1,120 @@
+{
+    "language": "English",
+    "filetype": "pdf",
+    "toc": [
+        [
+            1,
+            "Installation",
+            1
+        ],
+        [
+            2,
+            "Option 1: Install and Run AutoGen in Docker\u200b",
+            1
+        ],
+        [
+            3,
+            "Step 1: Install Docker\u200b",
+            1
+        ],
+        [
+            3,
+            "Step 2: Build a Docker Image\u200b",
+            1
+        ],
+        [
+            3,
+            "Step 3: Run AutoGen Applications from Docker Image\u200b",
+            1
+        ],
+        [
+            4,
+            "Additional Resources\u200b",
+            2
+        ],
+        [
+            2,
+            "Option 2: Install AutoGen Locally Using Virtual Environment\u200b",
+            2
+        ],
+        [
+            3,
+            "Option a: venv\u200b",
+            2
+        ],
+        [
+            3,
+            "Option b: conda\u200b",
+            2
+        ],
+        [
+            3,
+            "Option c: poetry\u200b",
+            2
+        ],
+        [
+            2,
+            "Python\u200b",
+            3
+        ],
+        [
+            3,
+            "Migration guide to v0.2\u200b",
+            3
+        ],
+        [
+            3,
+            "Optional Dependencies\u200b",
+            3
+        ],
+        [
+            4,
+            "Docker\u200b",
+            3
+        ],
+        [
+            4,
+            "blendsearch\u200b",
+            3
+        ],
+        [
+            4,
+            "retrievechat\u200b",
+            4
+        ],
+        [
+            4,
+            "Teachability\u200b",
+            4
+        ],
+        [
+            4,
+            "Large Multimodal Model (LMM) Agents\u200b",
+            4
+        ],
+        [
+            4,
+            "mathchat\u200b",
+            4
+        ]
+    ],
+    "pages": 4,
+    "ocr_stats": {
+        "ocr_pages": 0,
+        "ocr_failed": 0,
+        "ocr_success": 0
+    },
+    "block_stats": {
+        "header_footer": 0,
+        "code": 0,
+        "table": 0,
+        "equations": {
+            "successful_ocr": 0,
+            "unsuccessful_ocr": 0,
+            "equations": 0
+        }
+    },
+    "postprocess_stats": {
+        "edit": {}
+    }
+}

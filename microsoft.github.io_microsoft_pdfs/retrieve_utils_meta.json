@@ -1,0 +1,75 @@
+{
+    "language": "English",
+    "filetype": "pdf",
+    "toc": [
+        [
+            1,
+            "retrieve_utils",
+            1
+        ],
+        [
+            2,
+            "UNSTRUCTURED_FORMATS\u200b",
+            1
+        ],
+        [
+            2,
+            "split_text_to_chunks\u200b",
+            1
+        ],
+        [
+            2,
+            "extract_text_from_pdf\u200b",
+            1
+        ],
+        [
+            2,
+            "split_files_to_chunks\u200b",
+            1
+        ],
+        [
+            2,
+            "get_files_from_dir\u200b",
+            1
+        ],
+        [
+            2,
+            "get_file_from_url\u200b",
+            1
+        ],
+        [
+            2,
+            "is_url\u200b",
+            1
+        ],
+        [
+            2,
+            "create_vector_db_from_dir\u200b",
+            1
+        ],
+        [
+            2,
+            "query_vector_db\u200b",
+            2
+        ]
+    ],
+    "pages": 3,
+    "ocr_stats": {
+        "ocr_pages": 0,
+        "ocr_failed": 0,
+        "ocr_success": 0
+    },
+    "block_stats": {
+        "header_footer": 4,
+        "code": 0,
+        "table": 0,
+        "equations": {
+            "successful_ocr": 0,
+            "unsuccessful_ocr": 0,
+            "equations": 0
+        }
+    },
+    "postprocess_stats": {
+        "edit": {}
+    }
+}

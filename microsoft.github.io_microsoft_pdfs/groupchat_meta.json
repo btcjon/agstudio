@@ -1,0 +1,100 @@
+{
+    "language": "English",
+    "filetype": "pdf",
+    "toc": [
+        [
+            1,
+            "agentchat.groupchat",
+            1
+        ],
+        [
+            2,
+            "GroupChat Objects\u200b",
+            1
+        ],
+        [
+            3,
+            "agent_names\u200b",
+            1
+        ],
+        [
+            3,
+            "reset\u200b",
+            1
+        ],
+        [
+            3,
+            "append\u200b",
+            1
+        ],
+        [
+            3,
+            "agent_by_name\u200b",
+            1
+        ],
+        [
+            3,
+            "next_agent\u200b",
+            1
+        ],
+        [
+            3,
+            "select_speaker_msg\u200b",
+            1
+        ],
+        [
+            3,
+            "select_speaker_prompt\u200b",
+            2
+        ],
+        [
+            3,
+            "manual_select_speaker\u200b",
+            2
+        ],
+        [
+            3,
+            "select_speaker\u200b",
+            2
+        ],
+        [
+            3,
+            "a_select_speaker\u200b",
+            2
+        ],
+        [
+            2,
+            "GroupChatManager Objects\u200b",
+            2
+        ],
+        [
+            3,
+            "run_chat\u200b",
+            2
+        ],
+        [
+            3,
+            "a_run_chat\u200b",
+            2
+        ]
+    ],
+    "pages": 2,
+    "ocr_stats": {
+        "ocr_pages": 0,
+        "ocr_failed": 0,
+        "ocr_success": 0
+    },
+    "block_stats": {
+        "header_footer": 0,
+        "code": 0,
+        "table": 0,
+        "equations": {
+            "successful_ocr": 0,
+            "unsuccessful_ocr": 0,
+            "equations": 0
+        }
+    },
+    "postprocess_stats": {
+        "edit": {}
+    }
+}

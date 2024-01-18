@@ -1,0 +1,45 @@
+{
+    "language": "English",
+    "filetype": "pdf",
+    "toc": [
+        [
+            1,
+            "token_count_utils",
+            1
+        ],
+        [
+            2,
+            "token_left\u200b",
+            1
+        ],
+        [
+            2,
+            "count_token\u200b",
+            1
+        ],
+        [
+            2,
+            "num_tokens_from_functions\u200b",
+            1
+        ]
+    ],
+    "pages": 2,
+    "ocr_stats": {
+        "ocr_pages": 0,
+        "ocr_failed": 0,
+        "ocr_success": 0
+    },
+    "block_stats": {
+        "header_footer": 0,
+        "code": 0,
+        "table": 0,
+        "equations": {
+            "successful_ocr": 0,
+            "unsuccessful_ocr": 0,
+            "equations": 0
+        }
+    },
+    "postprocess_stats": {
+        "edit": {}
+    }
+}
