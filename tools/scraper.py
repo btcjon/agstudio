@@ -80,8 +80,8 @@ def crawl_website(url, visited=None, folders=None):
                 urls_in_directory.append(absolute_href)
 
                 # Write the URL to the file
-            with open(text_file_path, 'a') as f:
-                f.write(f"{absolute_href}\n")
+                with open(text_file_path, 'a') as f:
+                    f.write(f"{absolute_href}\n")
 
                 # If the link has not been visited and is within the base URL, crawl it
                 if absolute_href not in visited and base_url in absolute_href:
