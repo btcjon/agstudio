@@ -83,5 +83,4 @@ for url in urls:
 
 print("The following subdirectories saved:")
 for subdirectory in sorted(subdirectories):
-for subdirectory in subdirectories:
     print(subdirectory)
