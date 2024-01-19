@@ -1,0 +1,55 @@
+{
+    "language": "English",
+    "filetype": "pdf",
+    "toc": [
+        [
+            1,
+            "Open Source & AI-Oriented",
+            1
+        ],
+        [
+            2,
+            "REST API",
+            1
+        ],
+        [
+            2,
+            "Widget SDK",
+            1
+        ],
+        [
+            2,
+            "Script",
+            2
+        ],
+        [
+            2,
+            "Self-hosted",
+            2
+        ],
+        [
+            2,
+            "Visual Database Technical White Paper",
+            2
+        ]
+    ],
+    "pages": 2,
+    "ocr_stats": {
+        "ocr_pages": 0,
+        "ocr_failed": 0,
+        "ocr_success": 0
+    },
+    "block_stats": {
+        "header_footer": 0,
+        "code": 0,
+        "table": 0,
+        "equations": {
+            "successful_ocr": 0,
+            "unsuccessful_ocr": 0,
+            "equations": 0
+        }
+    },
+    "postprocess_stats": {
+        "edit": {}
+    }
+}
