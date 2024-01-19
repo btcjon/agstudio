@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
+from urllib.parse import urlsplit
 import os
 import argparse
 import time
@@ -69,18 +70,21 @@ with open(os.path.join(file_dir, 'urls.txt'), 'w') as f:
 
 print(f"Saved {len(urls)} URLs to {os.path.join(file_dir, 'urls.txt')}")
 
-# Extract unique subdirectories
-subdirectories = set()
-for url in urls:
-    path = urlparse(url).path
-    # Split the path to get the first-level subdirectory
-    parts = path.split('/', 2)
-    if len(parts) > 1 and not parts[1].startswith('?'):
-        subdirectory = '/' + parts[1]
-    else:
-        subdirectory = '/'
-    subdirectories.add(subdirectory)
+# Read URLs from file
+with open(os.path.join(file_dir, 'urls.txt'), 'r') as f:
+    urls = f.read().splitlines()
 
-print("The following subdirectories saved:")
-for subdirectory in sorted(subdirectories):
-    print(subdirectory)
+# Extract unique main folders
+main_folders = set()
+for url in urls:
+    path = urlsplit(url).path
+    # Split the path to get the main folder
+    parts = path.split('/')
+    if len(parts) > 2:  # Changed from 1 to 2
+        main_folder = '/' + parts[1] + '/' + parts[2]  # Added parts[2]
+        main_folders.add(main_folder)
+
+# Print unique main folders
+print("The following main folders were found:")
+for folder in sorted(main_folders):
+    print(folder)

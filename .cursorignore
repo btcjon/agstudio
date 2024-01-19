@@ -2,3 +2,6 @@ autogen*
 *autogen*
 *agstudio*
 agstudio*
+scrape*
+marker*
+.cache*

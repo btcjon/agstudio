@@ -83,3 +83,65 @@
 
 # 2024-01-17 06:08:15.815251
 +which python
+
+# 2024-01-18 15:49:33.238447
++/add tools/scraper.py tools/scraper-readme.md
+
+# 2024-01-18 15:50:37.587594
++read the readme. script not working as expected.  I enter 'python tools/scraper.py https://docs.retool.com/ -pdf -md -c -f apps,workflows,ai' and gets stuck like '(base) jonbennett@Jons-MacBook-Pro agstudio % python tools/scraper.py https://docs.retool.com/ -pdf -md -c -f apps,workflows,ai
++Scraping URLs...
++Crawled https://docs.retool.com/, found 0 URLs so far.
++Getting stop words...
++Enter any stop words, separated by commas: '
+
+# 2024-01-18 15:56:39.006955
++indentation errors
+
+# 2024-01-18 15:58:31.719875
++its going immediately to asking for stop words, seems to not gather urls properly beacuse of the folder filtering logic
+
+# 2024-01-18 16:00:15.053889
++errors
+
+# 2024-01-18 16:00:50.142674
++indentation error line 80
+
+# 2024-01-18 16:01:22.184015
++Unexpected indentation line 80
+
+# 2024-01-18 22:26:24.222527
++/drop
+
+# 2024-01-18 22:26:27.192841
++/clear
+
+# 2024-01-18 22:27:01.473881
++/add tools/crawl_urls_save_2_txt.py tools/current_task.md
+
+# 2024-01-18 22:27:12.792532
++read current task and see if you can solve
+
+# 2024-01-18 22:29:38.273410
++see, still not right 'Saved 73 URLs to tools/scrape/microsoft.github.io/urls.txt
++The following subdirectories saved:
++/autogen'
+
+# 2024-01-18 22:30:34.185187
++python tools/crawl_urls_save_2_txt.py https://microsoft.github.io/autogen/
++  File "/Users/jonbennett/Dropbox/coding2/agstudio/tools/crawl_urls_sa
++ve_2_txt.py", line 79                                                     if subdirectory:
++    ^
++IndentationError: expected an indented block after 'if' statement on l
++ine 78                                                                
+
+# 2024-01-18 22:34:39.144602
++still not right do you need clarification on what we are trying to do?  let's try different approach for reporting and re-read the current-task.md please 'Saved 73 URLs to tools/scrape/microsoft.github.io/urls.txt
++The following subdirectories saved:
++/autogen' which is wrong
+
+# 2024-01-18 22:37:12.982242
++(agstudio) (base) jonbennett@Jons-MacBook-Pro agstudio % python tools/crawl_urls_save_2_txt.py https://microsoft.github.io/autogen/
++  File "/Users/jonbennett/Dropbox/coding2/agstudio/tools/crawl_urls_save_2_txt.py", line 86
++    for subdirectory in subdirectories:
++    ^
++IndentationError: expected an indented block after 'for' statement on line 85
