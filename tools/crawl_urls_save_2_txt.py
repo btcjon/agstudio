@@ -75,8 +75,7 @@ for url in urls:
     path = urlparse(url).path
     parts = path.strip('/').split('/')
     subdirectory = '/' + parts[0] if parts else '/'
-    if subdirectory not in subdirectories:
-    if subdirectory:
+    if subdirectory and subdirectory not in subdirectories:
         subdirectories.add(subdirectory)
 
 print("The following subdirectories saved:")
