@@ -73,7 +73,7 @@ print(f"Saved {len(urls)} URLs to {os.path.join(file_dir, 'urls.txt')}")
 subdirectories = set()
 for url in urls:
     path = urlparse(url).path
-    subdirectory = '/' + path.split('/')[1] + '/'
+    subdirectory = '/' + path.strip('/').split('/')[0]
     if subdirectory:
         subdirectories.add(subdirectory)
 
