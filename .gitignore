@@ -5,3 +5,4 @@ agstudio*
 .env
 oai_config_list.json
 .aider*
+*scraped
